@@ -16,8 +16,8 @@ def transcode_to_mpd(video_file_path):
 
     # Use FFmpeg to transcode the video to MPD format
 
-    ffmpeg_executable = r'C:\ffmpeg\ffmpeg-2024-05-13-git-37db0454e4-essentials_build\bin\ffmpeg.exe'
-    command = [ffmpeg_executable, '-i', video_file_path, '-c:v', 'libx264', '-preset', 'fast', '-c:a', 'aac', '-strict', 'experimental', '-f', 'dash', output_mpd_file]
+    #ffmpeg_executable = r'C:\ffmpeg\ffmpeg-2024-05-13-git-37db0454e4-essentials_build\bin\ffmpeg.exe'
+    command = ['ffmpeg', '-i', video_file_path, '-c:v', 'libx264', '-preset', 'fast', '-c:a', 'aac', '-strict', 'experimental', '-f', 'dash', output_mpd_file]
 
 
     try:
