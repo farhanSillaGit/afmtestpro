@@ -18,14 +18,12 @@ def upload_video(request):
 
 
             video_file_path = os.path.join(settings.MEDIA_ROOT, str(video.video_file))
-            mpd_file_path = transcode_to_mpd(video_file_path)
+            mpd_file_path = transcode_to_mpd.delay(video_file_path)
 
             video.mpd_file = mpd_file_path
             video.save()
 
-            # Split the video into chunks
-            #chunk_duration = 60  # Example: Split video into 60-second chunks
-            #chunks_metadata = split_video_into_chunks(video_file_path, chunk_duration)
+            
 
             return redirect('video_list')
 
